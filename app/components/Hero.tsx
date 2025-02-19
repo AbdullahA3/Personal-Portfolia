@@ -58,7 +58,9 @@ export default function Hero() {
             <div className="flex justify-center lg:justify-start space-x-4 mb-8">
               <motion.a
                 whileHover={{ scale: 0.95 }}
-                href="#"
+                href="https://github.com/AbdullahA3"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="GitHub Profile"
               >
@@ -67,7 +69,9 @@ export default function Hero() {
 
               <motion.a
                 whileHover={{ scale: 0.95 }}
-                href="#"
+                href="https://www.linkedin.com/in/abdullahanwar3783/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="LinkedIn Profile"
               >
@@ -100,14 +104,14 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+              <div className="w-full h-full rounded-full border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/linkednpic.JPG-2vPmZ66BW1dee0cq2GS30V8x26BYny.jpeg"
                   alt="Abdullah Anwar"
-                  width={384}
-                  height={384}
-                  className="object-cover"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover object-center"
                   priority
                 />
               </div>
