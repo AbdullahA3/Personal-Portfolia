@@ -33,8 +33,11 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
     try {
-      // Here you would typically send the form data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1000)) // Simulate API call
+      // Send email using mailto link
+      const subject = encodeURIComponent(data.subject)
+      const body = encodeURIComponent(`From: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`)
+      window.location.href = `mailto:abdullahanwar378@gmail.com?subject=${subject}&body=${body}`
+
       setSubmitSuccess(true)
       reset()
       setTimeout(() => setSubmitSuccess(false), 3000)
