@@ -8,7 +8,7 @@ const sections = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
-  { id: "services", label: "Services" },
+  { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
   { id: "contact", label: "Contact" },
 ]
@@ -45,12 +45,11 @@ export default function FloatingNav() {
     >
       <div className="flex flex-col gap-3">
         {sections.map(({ id, label }) => (
-          <motion.button
+          <button
             key={id}
             onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
             className="group relative flex items-center"
             aria-label={`Scroll to ${label}`}
-            whileHover={{ scale: 0.95 }}
           >
             <span className="absolute right-8 px-2 py-1 rounded bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {label}
@@ -62,7 +61,7 @@ export default function FloatingNav() {
                   : "bg-gray-400 dark:bg-gray-600 hover:scale-110"
               }`}
             />
-          </motion.button>
+          </button>
         ))}
       </div>
     </motion.div>

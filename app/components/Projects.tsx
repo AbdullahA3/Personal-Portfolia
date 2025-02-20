@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Globe, Users } from "lucide-react"
-import Image from "next/image"
+import { Globe, Users, ExternalLink } from "lucide-react"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
 
 const projects = [
@@ -21,7 +20,7 @@ const projects = [
   },
   {
     title: "WildBC – Wildlife Conservation Platform",
-    period: "18 Feb 2018 – May 2020",
+    period: "Feb 15, 2025 – Feb 16, 2025",
     role: "Hackathon Project",
     description: "A React, Next.js, and Node.js-powered wildlife conservation platform developed in 24 hours.",
     achievements: [
@@ -31,6 +30,7 @@ const projects = [
       "Successfully deployed the platform for public access, promoting wildlife conservation awareness.",
     ],
     icon: <Users className="w-12 h-12 text-green-500" />,
+    liveDemo: "https://wilf-life-climate-change-crisis.vercel.app/",
   },
 ]
 
@@ -67,13 +67,21 @@ export default function Projects() {
                     </li>
                   ))}
                 </ul>
+                {project.liveDemo && (
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-4 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
+                  >
+                    <ExternalLink className="w-5 h-5 mr-2" />
+                    View Live Demo
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 -mb-32 -ml-32 opacity-20">
-        <Image src="/placeholder.svg?height=256&width=256" alt="Decorative background" width={256} height={256} />
       </div>
     </section>
   )
