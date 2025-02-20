@@ -1,80 +1,106 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
-
-const navItems = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
-  { id: "services", label: "Services" },
-  { id: "education", label: "Education" },
-  { id: "contact", label: "Contact" },
-]
+import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
 
 export default function TopNav() {
-  const [activeSection, setActiveSection] = useState("about")
+  const [mounted, setMounted] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [activeSection, setActiveSection] = useState("home")
+  const { theme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    navItems.forEach(({ id }) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
-    })
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100)
       setLastScrollY(currentScrollY)
     }
 
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }
+
     window.addEventListener("scroll", handleScroll)
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.3,
+    })
+
+    document.querySelectorAll("section[id]").forEach((section) => {
+      observer.observe(section)
+    })
+
     return () => {
-      observer.disconnect()
       window.removeEventListener("scroll", handleScroll)
+      observer.disconnect()
     }
   }, [lastScrollY])
 
+  if (!mounted) return null
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const offset = 80 // Height of the header
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "experience", label: "Experience" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
+  ]
+
   return (
-    <motion.div
-      className={`fixed w-full z-50 transition-all duration-300 ${isVisible ? "top-0" : "-top-20"}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+    <header
+      className={`
+        fixed w-full z-50 transition-all duration-300
+        ${isVisible ? "top-0" : "-top-20"}
+        ${theme === "dark" ? "bg-gray-900/95" : "bg-white/95"}
+        backdrop-blur-sm shadow-md
+      `}
     >
-      <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-md">
-        <nav className="container mx-auto px-6 py-4">
-          <ul className="flex justify-end space-x-8">
-            {navItems.map(({ id, label }) => (
-              <motion.li key={id} whileHover={{ scale: 0.95 }}>
-                <button
-                  onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
-                  className={`text-sm font-medium transition-colors duration-300 ${
+      <nav className="container mx-auto px-6 py-4">
+        <ul className="flex justify-center space-x-6">
+          {navItems.map(({ id, label }) => (
+            <li key={id}>
+              <button
+                onClick={() => scrollToSection(id)}
+                className={`
+                  transition-colors duration-300
+                  ${
                     activeSection === id
                       ? "text-blue-600 dark:text-blue-400"
-                      : "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-                  }`}
-                >
-                  {label}
-                </button>
-              </motion.li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </motion.div>
+                      : theme === "dark"
+                        ? "text-gray-300 hover:text-white"
+                        : "text-gray-800 hover:text-blue-600"
+                  }
+                `}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   )
 }
 
