@@ -7,11 +7,23 @@ import AnimatedSectionHeader from "./AnimatedSectionHeader"
 
 export default function Experience() {
   const experiences = [
-    
+    {
+      company: "CSM Med IT Team (University of Calgary)",
+      location: "Calgary, AB",
+      period: "January 2025 - Present",
+      role: "Analyst IT Intern",
+      responsibilities: [
+        " Managed SAP configurations and troubleshooting, reducing ticket resolution time by 25% and improving user satisfaction by 15%", 
+"Administered Azure Active Directory and cloud infrastructure for 300+ users, increasing system uptime to 99.9%",
+" Unbound and configured 200+ Mac devices, streamlining deployment and reducing setup time by 30%",
+" Performed Windows OS reimaging and software installations on 400+ devices, decreasing setup time by 35%.",
+      ],
+    },
+
     {
       company: "Biomedical Engineering Research, Innovation, and Technology (BMERIT)",
       location: "Calgary, AB",
-      period: "November - Present",
+      period: "November 2024 - Present",
       role: "Software and Programmables Team Developer",
       responsibilities: [
         "Developed and maintained software for an IoT-based hygiene tracking system deployed at Alberta Children's Hospital.",
