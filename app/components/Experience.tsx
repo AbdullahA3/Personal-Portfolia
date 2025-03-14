@@ -37,6 +37,18 @@ export default function Experience() {
       ],
     }, 
 
+    {
+      company: "Eco Club (University Of Calgary)",
+      location: "Calgary, AB",
+      period: "May 2025 - Present",
+      role: "Vice President External",
+      responsibilities: [
+        "Build and maintain relationships with external organizations, sponsors, and community groups.",
+        "Coordinate with external groups to provide volunteering and learning opportunities for club members.",
+        "Work with campus sustainability offices and student government on eco-friendly initiatives.",
+        "CWork with the VP Communications to promote partnerships and external events through social media and other channels.",
+      ],
+    },
 
     {
       company: "Abu Dhabi National Oil Company (ADNOC)",
