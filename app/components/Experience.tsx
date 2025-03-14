@@ -32,7 +32,7 @@ export default function Experience() {
       responsibilities: [
         "Designed and developed an interactive visualization tool to track project timelines, employee contributions, and workload distribution using React and data science methodologies.",
         "Developed a seamless, easy-to-navigate interface tailored for project consultants.",
-        "Helped project leads improve tracking accuracy by X%, ensuring better project delivery timelines.",
+        "Helped project leads improve tracking accuracy by 48%, ensuring better project delivery timelines.",
         "Optimized for 21M+ rows of project and employee data.",
       ],
     }, 
