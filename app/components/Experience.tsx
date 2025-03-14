@@ -7,10 +7,11 @@ import AnimatedSectionHeader from "./AnimatedSectionHeader"
 
 export default function Experience() {
   const experiences = [
+    
     {
       company: "Biomedical Engineering Research, Innovation, and Technology (BMERIT)",
       location: "Calgary, AB",
-      period: "January 2025 - Present",
+      period: "November - Present",
       role: "Software and Programmables Team Developer",
       responsibilities: [
         "Developed and maintained software for an IoT-based hygiene tracking system deployed at Alberta Children's Hospital.",
