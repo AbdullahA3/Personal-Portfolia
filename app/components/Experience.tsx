@@ -7,18 +7,8 @@ import AnimatedSectionHeader from "./AnimatedSectionHeader"
 
 export default function Experience() {
   const experiences = [
-    {
-      company: "CSM Med IT Team (University of Calgary)",
-      location: "Calgary, AB",
-      period: "January 2025 - Present",
-      role: "Analyst IT Intern",
-      responsibilities: [
-        " Managed SAP configurations and troubleshooting, reducing ticket resolution time by 25% and improving user satisfaction by 15%", 
-"Administered Azure Active Directory and cloud infrastructure for 300+ users, increasing system uptime to 99.9%",
-" Unbound and configured 200+ Mac devices, streamlining deployment and reducing setup time by 30%",
-" Performed Windows OS reimaging and software installations on 400+ devices, decreasing setup time by 35%.",
-      ],
-    },
+  
+
 
     {
       company: "Biomedical Engineering Research, Innovation, and Technology (BMERIT)",
@@ -33,6 +23,21 @@ export default function Experience() {
         "Created dynamic dispenser usage analytics, enabling trend tracking over weekly, monthly, and quarterly intervals, increasing data transparency by 80%.",
       ],
     },
+
+    {
+      company: "Data Science and Machine Learning (Urban Systems Partnership Project)",
+      location: "Calgary, AB",
+      period: "March 2025 - Present",
+      role: "Project Member",
+      responsibilities: [
+        "Designed and developed an interactive visualization tool to track project timelines, employee contributions, and workload distribution using React and data science methodologies.",
+        "Developed a seamless, easy-to-navigate interface tailored for project consultants.",
+        "Helped project leads improve tracking accuracy by X%, ensuring better project delivery timelines.",
+        "Optimized for 21M+ rows of project and employee data.",
+      ],
+    }, 
+
+
     {
       company: "Abu Dhabi National Oil Company (ADNOC)",
       location: "Abu Dhabi, UAE",
@@ -45,6 +50,8 @@ export default function Experience() {
         "Contributed to predictive modeling efforts, improving forecasting accuracy by 10%.",
       ],
     },
+
+
   ]
 
   return (
